@@ -1,4 +1,4 @@
-import clientPromise from "../../utils/db";
+import clientPromise from "../../../../utils/db";
 
 export default async function Home(){
     const client = await clientPromise;
