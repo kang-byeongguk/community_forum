@@ -1,3 +1,4 @@
+import Link from "next/link";
 import clientPromise from "../../utils/db";
 
 export default async function Home(){
@@ -8,11 +9,11 @@ export default async function Home(){
 
   return(
     <div>
-      {posts.map((post,i)=>{
-        return(
-          <div key={post._id.toString()}>{post.title}</div>
-        )
-      })}
+      {posts.map((post) => (
+  <Link key={post._id.toString()} href={`/content/${post._id}`}>
+    <div>{post.title}</div>
+  </Link>
+))}
     </div>
   )
 }
