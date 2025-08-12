@@ -1,9 +1,6 @@
-import { NextResponse } from 'next/server'; // NextResponse를 임포트
-import clientPromise from '../../../../utils/db';
-
-export async function GET(request) {
-  return NextResponse.json('처리완료함', { status: 200 });
-}
+import { ObjectId } from "mongodb";
+import clientPromise from "../../../../utils/db";
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
 
@@ -13,7 +10,8 @@ export async function POST(request) {
 
   const client = await clientPromise;
   const db = client.db('community_forum'); // ✨ DB 이름을 입력하세요
-  const posts = await db.collection('post').insertOne({title:title,content:content});
+//   const posts = await db.collection('post').updateOne({title:title,content:content});
+  const posts = await db.collection('post').insertOne({title,content});
 
   // return NextResponse.json('처리완료함', { status: 200 })
   return NextResponse.redirect(new URL('/', request.url));
