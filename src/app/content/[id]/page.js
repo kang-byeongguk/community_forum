@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 import clientPromise from "../../../../utils/db";
 import Link from "next/link";
+import Delete from "../../../../components/Delete";
 
 export default async function Home(props){
     const client = await clientPromise;
@@ -11,6 +12,7 @@ export default async function Home(props){
   return(
     <div>
       <Link href={`/write/${params.id}`}>수정하기</Link>
+      <Delete id={params.id}></Delete>
         <div>{posts.title}</div>
         <div>{posts.content}</div>
     </div>
