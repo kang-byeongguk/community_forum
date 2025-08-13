@@ -1,6 +1,8 @@
 'use client'
 
 import { useRouter } from "next/navigation"
+import LoginButton from "../../components/LoginButton"
+import { SessionProvider } from "next-auth/react"
 
 export default function RootLayout({children}){
   const router = useRouter()
@@ -13,8 +15,11 @@ export default function RootLayout({children}){
           <button onClick={()=>{router.forward()}}>앞으로</button>
           <button onClick={()=>{router.back()}}>뒤로</button>
           <button onClick={()=>{router.push('/write')}}>글작성</button>
+          
         </div>
-        {children}
+        <SessionProvider>
+          <LoginButton></LoginButton>
+          {children}</SessionProvider>
       </body>
     </html>
   )
