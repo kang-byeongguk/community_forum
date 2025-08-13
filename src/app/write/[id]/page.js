@@ -6,7 +6,6 @@ export default async function Patch(props){
     const params = await props.params
     const db = client.db('community_forum'); // ✨ DB 이름을 입력하세요
     const post = await db.collection('post').findOne({_id:new ObjectId(params.id)})
-console.log(post);
   return(
     <div>
             <form action='/api/patch' method="POST">
