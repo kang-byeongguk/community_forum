@@ -6,7 +6,8 @@ export default function LoginButton() {
   const { data: session, status } = useSession()
 
   if (status === 'loading') return <p>로딩중...</p>
-
+  console.log('로그인버튼')
+  console.log(session)
   if (session) {
     return (
       <div>
@@ -20,7 +21,7 @@ export default function LoginButton() {
   return (
     <div>
       <p>로그인하지 않았습니다</p>
-      <button onClick={() => signIn('github')}>GitHub로 로그인</button>
+      <button onClick={() => signIn()}>로그인</button>
     </div>
   )
 }

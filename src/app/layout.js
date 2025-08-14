@@ -15,6 +15,7 @@ export default function RootLayout({children}){
           <button onClick={()=>{router.forward()}}>앞으로</button>
           <button onClick={()=>{router.back()}}>뒤로</button>
           <button onClick={()=>{router.push('/write')}}>글작성</button>
+          <button onClick={()=>{router.push('/signup')}}>회원가입</button>
           
         </div>
         <SessionProvider>
